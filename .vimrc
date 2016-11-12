@@ -10,9 +10,10 @@ set fileformats=unix,dos
 " バックアップをとる
 " 逆は [ set nobackup ]
 " set backup
+set nobackup
 
 " バックアップを作るディレクトリを指定する
-set backupdir=~/backup
+" set backupdir=~/backup
 
 " 検索履歴を50個残す
 set history=50
