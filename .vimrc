@@ -76,3 +76,24 @@ if has('syntax')
    augroup END
    call ZenkakuSpace()
 endif
+
+"NeoBundleの設定
+set nocompatible
+filetype plugin indent off
+
+
+if has('vim_starting')
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+   call neobundle#begin(expand('~/.vim/bundle')) 
+endif
+
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'tomasr/molokai'
+
+call neobundle#end()
+NeoBundleCheck
+
+filetype plugin indent on
+
+colorscheme molokai
