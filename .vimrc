@@ -37,9 +37,6 @@ set incsearch
 " 逆は [ set nonumber ]
 set number
 
-" 改行 ( $ ) やタブ ( ^I ) を可視化する
-" set list
-
 " 括弧入力時に対応する括弧を強調する
 set showmatch
 
@@ -53,3 +50,29 @@ highlight Comment ctermfg=LightCyan
 " ウィンドウ幅で行を折り返す
 " 逆は [ set nowrap ]
 set wrap
+
+
+"tabでspace2つぶん
+set tabstop=2
+
+"tab文字を半角スペースにする
+set expandtab
+
+set cursorline
+set cursorcolumn
+
+set list
+set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
+
+function! ZenkakuSpace()
+    highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+endfunction
+       
+if has('syntax')
+   augroup ZenkakuSpace
+     autocmd!
+     autocmd ColorScheme       * call ZenkakuSpace()
+     autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+   augroup END
+   call ZenkakuSpace()
+endif
